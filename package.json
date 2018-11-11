@@ -1,0 +1,21 @@
+{
+  "name": "ku-kweb-archive-backend",
+  "version": "1.0.0",
+  "description": "케이웹 아카이빙 사이트 서버사이드",
+  "main": "src/index.js",
+  "repository": "https://github.com/KU-KWEB/ku-kweb-archive-backend.git",
+  "author": "KWEB",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "koa": "^2.6.2",
+    "nodemon": "^1.18.6"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-google": "^0.11.0"
+  }
+}
