@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node src/index.js",
     "start:dev": "nodemon src/index.js",
-    "lint": "eslint src/**"
+    "lint": "eslint",
+    "lint:all": "lint src/**",
+    "preinstall": "git config core.hooksPath .githooks"
   },
   "dependencies": {
     "koa": "^2.6.2",
