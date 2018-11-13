@@ -10,11 +10,14 @@
     "start": "node src/index.js",
     "start:dev": "nodemon src/index.js",
     "lint": "eslint",
-    "lint:all": "lint src/**",
+    "lint:all": "lint ./src",
     "preinstall": "git config core.hooksPath .githooks"
   },
   "dependencies": {
     "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "mysql2": "^1.6.4",
     "nodemon": "^1.18.6"
   },
   "devDependencies": {
