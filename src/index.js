@@ -4,12 +4,12 @@ const app = new Koa();
 
 const KeyValueRouter = require('./controller/key-value.router');
 app.use(bodyParser());
-app.use(KeyValueRouter.routes(), KeyValueRouter.allowedMethods());
+app.use(KeyValueRouter.routes());
 
 app.use((ctx) => {
   ctx.body = 'Hello KWEB';
 });
 
 app.listen(4000, () => {
-  console.log('heurm server is listening to port 4000');
+  console.log('KWEB server is listening to port 4000');
 });
