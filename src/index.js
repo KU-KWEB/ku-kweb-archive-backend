@@ -37,8 +37,8 @@ async function init() {
   });
 }
 
-const KeyValueRouter = require('./controller/key-value.router');
-const UserRouter = require('./controller/user.router');
+const {KeyValueRouter} = require('./controller/key-value.router');
+const {UserRouter} = require('./controller/user.router');
 const {TestRouter} = require('./controller/test.router');
 
 app.use(session({rolling: true}, app));
