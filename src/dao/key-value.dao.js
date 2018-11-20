@@ -5,18 +5,18 @@ module.exports.KeyValueDao = class {
     const [isExist] =
         await MysqlPool.query(`
           SELECT COUNT(*) AS cnt
-          FROM test_tb
+          FROM KeyValueStrage
           WHERE \`key\`=?
         `, key);
     if (isExist[0].cnt === 0) {
       await MysqlPool.query(`
-        INSERT INTO test_tb(\`key\`, value)
+        INSERT INTO KeyValueStrage(\`key\`, value)
         VALUES
         (?, ?)
       `, [key, value]);
     } else {
       await MysqlPool.query(`
-        UPDATE test_tb
+        UPDATE KeyValueStrage
         SET value = ?
         WHERE \`key\`=?
       `, [value, key]);
@@ -25,12 +25,18 @@ module.exports.KeyValueDao = class {
 
   static async getValue(key) {
     const [result] =
-        await MysqlPool.query('SELECT value FROM test_tb WHERE `key`=?', key);
+        await MysqlPool.query(`
+          SELECT value
+          FROM KeyValueStrage WHERE \`key\`=?
+        `, [key]);
+    if (result.length === 0 || !result[0].key) {
+      return null;
+    }
     return result[0].value;
   }
 
   static async getAllKeys() {
-    const [result] = await MysqlPool.query('SELECT `key` FROM test_tb');
+    const [result] = await MysqlPool.query('SELECT `key` FROM KeyValueStrage');
     return result;
   }
 };
