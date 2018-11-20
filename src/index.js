@@ -38,6 +38,7 @@ async function init() {
 }
 
 const KeyValueRouter = require('./controller/key-value.router');
+const UserRouter = require('./controller/user.router');
 const {TestRouter} = require('./controller/test.router');
 
 app.use(session({rolling: true}, app));
@@ -45,6 +46,7 @@ app.use(bodyParser());
 
 app.use(KeyValueRouter.routes());
 app.use(TestRouter.routes());
+app.use(UserRouter.routes());
 
 app.use((ctx) => {
   // ignore favicon
